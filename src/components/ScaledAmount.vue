@@ -8,16 +8,15 @@
 import { computed, ref, watch } from 'vue'
 
 const model = defineModel({ required: true })
-
 const user = ref(prettify(model.value))
 const isValid = computed(() => user.value === '' ? true : validate(user.value))
 const isChangeByUser = ref(false)
 
 watch(user, () => {
     if (!isValid.value) {
+        model.value = NaN
         return
     }
-    
     model.value = parseFloat(user.value.replace(',', '.'))
 })
 

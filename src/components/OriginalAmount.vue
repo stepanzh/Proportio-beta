@@ -1,5 +1,5 @@
 <template>
-    <input v-model="user" type="text" :class="{ invalid: wasEnterred && !isValid }" />
+    <input v-model="user" type="text" :class="{ invalid: !isValid }" />
 </template>
 
 
@@ -7,9 +7,8 @@
 import { computed, ref, watch } from 'vue'
 
 const model = defineModel({ required: true })
-
 const user = ref(prettify(model.value))
-const isValid = computed(() => validate(user.value))
+const isValid = computed(() => wasEnterred.value ? validate(user.value) : true )
 
 watch(user, () => {
     if (!isValid.value) {
