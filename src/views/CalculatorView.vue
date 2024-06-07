@@ -57,15 +57,12 @@ function emptyIngredient() {
     })
 
     ingr.stopWatchingScaledAmount = watch(() => ingr.scaledAmount, () => { onScaleAmountChanged(ingr.id) })
+    watch(() => ingr.originalAmount, () => { ingr.scaledAmount = NaN })
     return ingr
 }
 
 function add() {
     const ingr = emptyIngredient()
-
-    // https://stackoverflow.com/questions/66652900/is-there-a-way-to-watch-a-specific-property-of-an-object-in-vue-3
-    // watch(() => ingr.scaledAmount, () => { onScaleAmountChanged(ingr.id) })
-
     ingredients.value.push(ingr)
 }
 
@@ -83,6 +80,7 @@ const mode = ref(Modes.original)
 function setOriginal() { mode.value = Modes.original }
 function setScaled() { mode.value = Modes.scale }
 
+
 function onScaleAmountChanged(forId) {
     console.log(`SAmount changed for ${forId}`)
     const changedIngr = ingredients.value.find((x) => x.id === forId)
@@ -91,7 +89,6 @@ function onScaleAmountChanged(forId) {
     const scaleFactor = changedIngr.scaledAmount/ changedIngr.originalAmount
     updateScaleAmounts(forId, scaleFactor)
 }
-
 
 function updateScaleAmounts(excludeId, scaleBy) {
     ingredients.value
