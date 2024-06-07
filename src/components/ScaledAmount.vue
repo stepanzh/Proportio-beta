@@ -4,6 +4,10 @@
 
 
 <script setup>
+// TODO: Something wrong with precision and trailing zeros
+//       See captures: after 4th digit model filled with incorrect values
+
+
 import { computed, ref, watch } from 'vue'
 
 const model = defineModel({ required: true })
@@ -16,6 +20,10 @@ watch(user, () => {
         model.value = NaN
         return
     }
+    
+    // NOTE: Here we may compare new value with old and change model only when neccessary
+    //       It's usable when user edit number, e.g. replace dot with comma
+
     model.value = parseFloat(user.value.replace(',', '.'))
 })
 
@@ -38,10 +46,19 @@ function prettify(number) {
         return ''
     }
 
+    let rounded
+    if (0 <= number && number < 10){
+        rounded = number.toFixed(3);
+    } else if (10 <= number && number < 100){
+        rounded = number.toFixed(2);
+    } else if (100 <= number && number < 1000){
+        rounded = number.toFixed(1);
+    } else {
+        rounded = number.toFixed(0);
+    }
+
     // TODO: dot and comma
-    return number
-            .toPrecision(4)            // Four digits "rounding"
-            .replace(/[\.,]?0+$/, '')  // Remove trailing zeros
+    return parseFloat(rounded).toString()
 }
 </script>
 
