@@ -83,8 +83,6 @@ const mode = ref(Modes.original)
 function setOriginal() { mode.value = Modes.original }
 function setScaled() { mode.value = Modes.scale }
 
-// const isUpdatingScaleAmounts = ref(false)
-
 function onScaleAmountChanged(forId) {
     console.log(`SAmount changed for ${forId}`)
     const changedIngr = ingredients.value.find((x) => x.id === forId)
