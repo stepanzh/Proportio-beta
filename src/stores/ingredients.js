@@ -21,6 +21,7 @@ export const useIngredientsStore = defineStore('ingredients', () => {
     function add() {
         const ingr = emptyIngredient()
         ingredients.value.push(ingr)
+        // TODO: When there are some components and scale factor, update ingr.scaledAmount
     }
 
     function remove(id) {
