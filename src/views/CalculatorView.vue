@@ -78,7 +78,20 @@ const Modes = Object.freeze({
 
 const mode = ref(Modes.original)
 function setOriginal() { mode.value = Modes.original }
-function setScaled() { mode.value = Modes.scale }
+function setScaled() {
+    // Validate original amounts
+    const isAllOriginalAmountAreCorrect = !ingredients.value.some((ingr) => isNaN(ingr.originalAmount))
+    const isValid = isAllOriginalAmountAreCorrect;
+
+    if (!isValid) {
+        alert('У некоторых ингредиентов не указано кол-во')
+        return
+    }
+
+    // TODO: If enterred only one ingredient, show warning
+
+    mode.value = Modes.scale
+}
 
 
 function onScaleAmountChanged(forId) {
