@@ -2,10 +2,10 @@
     <div>
         <div v-for="ingr in store.ingredients" :key="ingr.id">
             <!-- one row -->
-            <div>
-                <span>{{ ingr.name === '' ? 'empty-name' : ingr.name }}</span>
-                <ScaledAmount v-model="ingr.scaledAmount" />
-                <span>{{ ingr.unit === '' ? 'empty-unit' : ingr.unit }}</span>
+            <div class="table-row">
+                <span class="cell-name">{{ ingr.name === '' ? 'empty-name' : ingr.name }}</span>
+                <ScaledAmount v-model="ingr.scaledAmount" class="cell-amount" />
+                <span class="cell-unit">{{ ingr.unit === '' ? 'empty-unit' : ingr.unit }}</span>
             </div>
             <!-- Debug info -->
             <div>

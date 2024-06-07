@@ -50,6 +50,23 @@ function setScaled() {
 </script>
 
 
-<style scoped>
+<style>
+.table-row {
+    display: grid;
+    grid-template-columns: minmax(128px, 320px) minmax(64px, 72px) minmax(56px, 72px);
+    gap: 8px;
+    align-items: center;
+}
 
+.cell-name,
+.cell-amount,
+.cell-unit {
+    display: inline-block;
+    padding: 4px 0;
+}
+
+.cell-unit {
+    overflow: hidden;
+    white-space: nowrap;
+}
 </style>

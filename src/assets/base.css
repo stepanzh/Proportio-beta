@@ -1,0 +1,13 @@
+:root {
+    --blue-ribbon-400: #529fff;
+    --red-orange-500: #f93224;
+    --shuttle-gray-200: #cecfd3;
+    --shuttle-gray-300: #acaeb4;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
