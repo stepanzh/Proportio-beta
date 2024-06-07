@@ -1,6 +1,5 @@
 <template>
-    <input v-model="user" @focus="isChangeByUser = true" @blur="isChangeByUser = false" type="text" :class="{ invalid: !isValid }" />
-    <span>Focus: {{ isChangeByUser }}</span>
+    <TextField v-model="user" @focus="isChangeByUser = true" @blur="isChangeByUser = false" type="text" :class="{ invalid: !isValid }" />
 </template>
 
 

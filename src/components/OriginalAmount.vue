@@ -1,5 +1,5 @@
 <template>
-    <input v-model="user" type="text" :class="{ invalid: !isValid }" />
+    <TextField v-model="user" type="text" :class="{ invalid: !isValid }" />
 </template>
 
 

@@ -30,7 +30,9 @@ const Modes = Object.freeze({
 })
 
 const mode = ref(Modes.original)
+
 function setOriginal() { mode.value = Modes.original }
+
 function setScaled() {
     // Validate original amounts
     const isAllOriginalAmountAreCorrect = !store.ingredients.some((ingr) => isNaN(ingr.originalAmount))
