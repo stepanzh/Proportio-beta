@@ -13,7 +13,6 @@ const isValid = computed(() => user.value === '' ? true : validate(user.value))
 
 watch(user, () => {
     if (!isValid.value) {
-        model.value = NaN
         return
     }
     model.value = parseFloat(user.value.replace(',', '.'))
