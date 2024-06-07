@@ -7,13 +7,13 @@
             <span>mode = {{ mode }}</span>
         </div>
         <!-- Table -->
-        <div v-for="ingr in ingredients" :key="ingr.id">
+        <div v-for="ingr in store.ingredients" :key="ingr.id">
             <div>
                 <div v-if="mode == Modes.original">
                     <TextField v-model="ingr.name" />
                     <OriginalAmount v-model="ingr.originalAmount" />
                     <TextField v-model="ingr.unit" />
-                    <button @click="remove(ingr.id)">Удалить</button>
+                    <button @click="store.remove(ingr.id)">Удалить</button>
                 </div>
                 <div v-else-if="mode == Modes.scale">
                     <span>{{ ingr.name === '' ? 'empty-name' : ingr.name }}</span>
@@ -33,7 +33,7 @@
         <!-- Actions -->
         <div>
             <div v-if="mode == Modes.original">
-                <button @click="add">Добавить ингредиент</button>
+                <button @click="store.add()">Добавить ингредиент</button>
             </div>
         </div>
     </div>
@@ -42,34 +42,12 @@
 
 <script setup>
 import { onMounted, reactive, ref, watch } from 'vue'
+import { useIngredientsStore } from '@/stores/ingredients'
 import OriginalAmount from '@/components/OriginalAmount.vue'
 import ScaledAmount from '@/components/ScaledAmount.vue'
 
-const ingredients = ref([])
 
-function emptyIngredient() {
-    const ingr = reactive({
-        id: crypto.randomUUID(),
-        originalAmount: NaN,
-        scaledAmount: NaN,
-        name: '',
-        unit: '',
-    })
-
-    ingr.stopWatchingScaledAmount = watch(() => ingr.scaledAmount, () => { onScaleAmountChanged(ingr.id) })
-    watch(() => ingr.originalAmount, () => { ingr.scaledAmount = NaN })
-    return ingr
-}
-
-function add() {
-    const ingr = emptyIngredient()
-    ingredients.value.push(ingr)
-}
-
-function remove(id) {
-    ingredients.value = ingredients.value.filter((x) => x.id != id)
-}
-
+const store = useIngredientsStore()
 
 const Modes = Object.freeze({
     original: 1,
@@ -80,7 +58,7 @@ const mode = ref(Modes.original)
 function setOriginal() { mode.value = Modes.original }
 function setScaled() {
     // Validate original amounts
-    const isAllOriginalAmountAreCorrect = !ingredients.value.some((ingr) => isNaN(ingr.originalAmount))
+    const isAllOriginalAmountAreCorrect = !store.ingredients.some((ingr) => isNaN(ingr.originalAmount))
     const isValid = isAllOriginalAmountAreCorrect;
 
     if (!isValid) {
@@ -92,32 +70,6 @@ function setScaled() {
 
     mode.value = Modes.scale
 }
-
-
-function onScaleAmountChanged(forId) {
-    console.log(`SAmount changed for ${forId}`)
-    const changedIngr = ingredients.value.find((x) => x.id === forId)
-
-    // TODO: NaNs
-    const scaleFactor = changedIngr.scaledAmount/ changedIngr.originalAmount
-    updateScaleAmounts(forId, scaleFactor)
-}
-
-function updateScaleAmounts(excludeId, scaleBy) {
-    ingredients.value
-        .filter((ingr) => ingr.id !== excludeId)
-        .forEach((ingr) => {
-            console.log(`${Date.now()} updateScaleAmounts: updating ${ingr.id}`)
-            ingr.stopWatchingScaledAmount()
-            ingr.scaledAmount = ingr.originalAmount * scaleBy
-            // DRY
-            ingr.stopWatchingScaledAmount = watch(() => ingr.scaledAmount, () => { onScaleAmountChanged(ingr.id) })
-        })
-}
-
-onMounted(() => {
-    add()
-})
 </script>
 
 
