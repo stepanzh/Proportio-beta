@@ -41,7 +41,9 @@ function prettify(number) {
     }
 
     // TODO: dot and comma
-    return number.toPrecision(4)
+    return number
+            .toPrecision(4)            // Four digits "rounding"
+            .replace(/[\.,]?0+$/, '')  // Remove trailing zeros
 }
 </script>
 
