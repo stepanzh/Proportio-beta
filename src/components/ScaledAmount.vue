@@ -1,5 +1,6 @@
 <template>
-    <input v-model="user" type="text" :class="{ invalid: !isValid }" />
+    <input v-model="user" @focus="isChangeByUser = true" @blur="isChangeByUser = false" type="text" :class="{ invalid: !isValid }" />
+    <span>Focus: {{ isChangeByUser }}</span>
 </template>
 
 
@@ -10,15 +11,20 @@ const model = defineModel({ required: true })
 
 const user = ref(prettify(model.value))
 const isValid = computed(() => user.value === '' ? true : validate(user.value))
+const isChangeByUser = ref(false)
 
 watch(user, () => {
     if (!isValid.value) {
         return
     }
+    
     model.value = parseFloat(user.value.replace(',', '.'))
 })
 
 watch(model, () => {
+    if (isChangeByUser.value) {
+        return
+    }
     user.value = prettify(model.value)
 })
 
@@ -33,14 +39,10 @@ function prettify(number) {
     if (isNaN(number)) {
         return ''
     }
-    // TODO: Dot and comma (?)
-    return number.toString()
+
+    // TODO: dot and comma
+    return number.toPrecision(4)
 }
-
-// Did user interact with input?
-const wasEnterred = ref(false)
-watch(user, () => { wasEnterred.value = true }, { once: true })
-
 </script>
 
 
