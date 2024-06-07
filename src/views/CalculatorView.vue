@@ -41,7 +41,7 @@
 
 
 <script setup>
-import { reactive, ref, watch } from 'vue'
+import { onMounted, reactive, ref, watch } from 'vue'
 import OriginalAmount from '@/components/OriginalAmount.vue'
 import ScaledAmount from '@/components/ScaledAmount.vue'
 
@@ -114,6 +114,10 @@ function updateScaleAmounts(excludeId, scaleBy) {
             ingr.stopWatchingScaledAmount = watch(() => ingr.scaledAmount, () => { onScaleAmountChanged(ingr.id) })
         })
 }
+
+onMounted(() => {
+    add()
+})
 </script>
 
 
