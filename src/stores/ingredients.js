@@ -31,6 +31,38 @@ export const useIngredientsStore = defineStore('ingredients', () => {
         ingredients.value = ingredients.value.filter((x) => x.id != id)
     }
 
+    // Moves ingredient with `id` up, if possible
+    function moveTowardsFirstOnce(id) {
+        for (let i = 1; i < ingredients.value.length; i++) {
+            let c = ingredients.value[i]
+            if (c.id === id) {
+                // (p) previous, (c) current,    see [ ... , p, c, ... ]
+                // 1. Pop p; c at correct place, see [ ... , c, ... ]
+                // 2. Insert p after c,          see [ ... , c, p, ... ]
+                let removedP = ingredients.value.splice(i - 1, 1)
+                let p = removedP[0]
+                ingredients.value.splice(i, 0, p)
+                break
+            }
+        }
+    }
+
+    function moveTowardsLastOnce(id) {
+        for (let i = 0; i < ingredients.value.length - 1; i++) {
+            let c = ingredients.value[i]
+            if (c.id === id) {
+                // (c) current, (n) next,        see [..., c, n, ...]
+                // 1. Pop n, c at correct place, see [..., c, ...]
+                // 2. Insert n before c,         see [..., n, c, ...]
+
+                let removedN = ingredients.value.splice(i + 1, 1)
+                let n = removedN[0]
+                ingredients.value.splice(i, 0, n)
+                break
+            }
+        }
+    }
+
     function onScaleAmountChanged(forId) {
         console.log(`SAmount changed for ${forId}`)
         const changedIngr = ingredients.value.find((x) => x.id === forId)
@@ -52,5 +84,14 @@ export const useIngredientsStore = defineStore('ingredients', () => {
             })
     }
 
-    return { ingredients, add, remove, emptyIngredient, onScaleAmountChanged, updateScaleAmounts }
+    return {
+        ingredients,
+        add,
+        remove,
+        moveTowardsFirstOnce,
+        moveTowardsLastOnce,
+        emptyIngredient,
+        onScaleAmountChanged,
+        updateScaleAmounts
+    }
 })

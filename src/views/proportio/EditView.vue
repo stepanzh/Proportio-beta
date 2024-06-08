@@ -12,7 +12,10 @@
                     <li v-for="ingr in store.ingredients" :key="ingr.id">
                         <button @click="store.remove(ingr.id)">Удалить</button>
                         <span>{{ ingr.displayedName }}</span>
-                        <span></span>
+                        <span>
+                            <button @click="store.moveTowardsFirstOnce(ingr.id)">↑</button>
+                            <button @click="store.moveTowardsLastOnce(ingr.id)">↓</button>
+                        </span>
                     </li>
                 </ul>
                 <div v-else>
