@@ -8,9 +8,9 @@
 
 <script setup>
 import ProportioView from '@/views/proportio/ProportioView.vue'
-import { useIngredientsStore } from '@/stores/ingredients'
+import { useProportioCalculatorStore } from '@/stores/proportioCalculator'
 
-const store = useIngredientsStore()
+const store = useProportioCalculatorStore()
 store.add()
 
 </script>

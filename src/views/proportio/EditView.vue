@@ -29,11 +29,11 @@
 
 <script setup>
 import AppNavBar from '@/components/AppNavBar.vue'
-import { useIngredientsStore } from '@/stores/ingredients'
-import { useProportioStore } from '@/stores/proportio'
+import { useProportioCalculatorStore } from '@/stores/proportioCalculator'
+import { useProportioNavStore } from '@/stores/proportioNav'
 
-const proportio = useProportioStore()
-const store = useIngredientsStore()
+const proportio = useProportioNavStore()
+const store = useProportioCalculatorStore()
 </script>
 
 

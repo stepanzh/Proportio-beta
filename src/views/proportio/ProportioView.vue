@@ -10,9 +10,9 @@
 <script setup>
 import CalculatorView from '@/views/proportio/CalculatorView.vue'
 import EditView from '@/views/proportio/EditView.vue'
-import { useProportioStore } from '@/stores/proportio'
+import { useProportioNavStore } from '@/stores/proportioNav'
 
-const proportio = useProportioStore()
+const proportio = useProportioNavStore()
 
 proportio.navToCalc()
 </script>

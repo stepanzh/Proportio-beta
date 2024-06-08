@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useProportioStore = defineStore('proportio', () => {
+export const useProportioNavStore = defineStore('proportio-nav', () => {
     const screens = Object.freeze({
         calc: 1,
         edit: 2,

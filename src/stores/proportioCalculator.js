@@ -1,7 +1,7 @@
 import { computed, reactive, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useIngredientsStore = defineStore('ingredients', () => {
+export const useProportioCalculatorStore = defineStore('proportio-calculator', () => {
     const ingredients = ref([])
 
     function emptyIngredient() {

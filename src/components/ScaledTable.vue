@@ -21,10 +21,10 @@
 
 
 <script setup>
-import { useIngredientsStore } from '@/stores/ingredients'
+import { useProportioCalculatorStore } from '@/stores/proportioCalculator'
 import ScaledAmount from '@/components/ScaledAmount.vue'
 
-const store = useIngredientsStore()
+const store = useProportioCalculatorStore()
 </script>
 
 

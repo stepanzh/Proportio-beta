@@ -31,15 +31,15 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useIngredientsStore } from '@/stores/ingredients'
+import { useProportioCalculatorStore } from '@/stores/proportioCalculator'
 import AppNavBar from '@/components/AppNavBar.vue'
 import OriginalTable from '@/components/OriginalTable.vue'
 import ScaledTable from '@/components/ScaledTable.vue'
-import { useProportioStore } from '@/stores/proportio'
+import { useProportioNavStore } from '@/stores/proportioNav'
 
 
-const proportio = useProportioStore()
-const store = useIngredientsStore()
+const proportio = useProportioNavStore()
+const store = useProportioCalculatorStore()
 
 const Modes = Object.freeze({
     original: 1,
