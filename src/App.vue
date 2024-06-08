@@ -1,12 +1,13 @@
 <template>
   <div>
-    <CalculatorView />
+    <!-- TODO: Site nav -->
+    <ProportioView />
   </div>
 </template>
 
 
 <script setup>
-import CalculatorView from '@/views/CalculatorView.vue'
+import ProportioView from '@/views/proportio/ProportioView.vue'
 import { useIngredientsStore } from '@/stores/ingredients'
 
 const store = useIngredientsStore()

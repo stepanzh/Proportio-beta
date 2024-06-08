@@ -1,16 +1,23 @@
 <template>
     <div>
-        <!-- Mode toggle -->
         <div>
-            <button @click="setOriginal">Как в рецепте</button>
-            <button @click="setScaled">Пересчитать</button>
-            <span>mode = {{ mode }}</span>
+            CalculatorViewNav
         </div>
+        <div>
+            <!-- Mode toggle -->
+            <div>
+                <button @click="setOriginal">Как в рецепте</button>
+                <button @click="setScaled">Пересчитать</button>
+                <span>mode = {{ mode }}</span>
+            </div>
 
-        <!-- Table and actions -->
-        <div>Здесь будет заголовок таблицы</div>
-        <OriginalTable v-if="mode === Modes.original" />
-        <ScaledTable v-if="mode === Modes.scale" />
+            <!-- Table and actions -->
+            <div>
+                <div>Здесь будет заголовок таблицы</div>
+                <OriginalTable v-if="mode === Modes.original" />
+                <ScaledTable v-if="mode === Modes.scale" />
+            </div>
+        </div>
     </div>
 </template>
 
