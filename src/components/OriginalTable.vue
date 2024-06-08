@@ -13,6 +13,7 @@
                 <span>o = {{ ingr.originalAmount }};</span>
                 <span>s = {{ ingr.scaledAmount }};</span>
                 <span>n = {{ ingr.name }};</span>
+                <span>d = {{ ingr.displayedName }};</span>
                 <span>u = {{ ingr.unit }};</span>
                 <span>i = {{ ingr.id }};</span>
             </div>

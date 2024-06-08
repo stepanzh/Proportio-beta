@@ -3,7 +3,7 @@
         <div v-for="ingr in store.ingredients" :key="ingr.id">
             <!-- one row -->
             <div class="table-row">
-                <span class="cell-name">{{ ingr.name === '' ? 'empty-name' : ingr.name }}</span>
+                <span class="cell-name">{{ ingr.displayedName }}</span>
                 <ScaledAmount v-model="ingr.scaledAmount" class="cell-amount" />
                 <span class="cell-unit">{{ ingr.unit === '' ? 'empty-unit' : ingr.unit }}</span>
             </div>

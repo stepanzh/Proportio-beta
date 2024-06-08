@@ -1,4 +1,4 @@
-import { reactive, ref, watch } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useIngredientsStore = defineStore('ingredients', () => {
@@ -15,6 +15,9 @@ export const useIngredientsStore = defineStore('ingredients', () => {
 
         ingr.stopWatchingScaledAmount = watch(() => ingr.scaledAmount, () => { onScaleAmountChanged(ingr.id) })
         watch(() => ingr.originalAmount, () => { ingr.scaledAmount = NaN })
+
+        ingr.displayedName = computed(() => ingr.name === '' ? '<Без названия>' : ingr.name )
+
         return ingr
     }
 
