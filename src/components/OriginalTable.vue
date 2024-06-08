@@ -6,7 +6,6 @@
                 <TextField v-model="ingr.name" class="cell-name"/>
                 <OriginalAmount v-model="ingr.originalAmount" class="cell-amount"/>
                 <TextField v-model="ingr.unit" class="cell-unit" />
-                <!-- <button @click="store.remove(ingr.id)">Удалить</button> -->
             </div>
             <!-- Debug info -->
             <div>
