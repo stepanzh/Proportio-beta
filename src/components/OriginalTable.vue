@@ -19,6 +19,7 @@
         </div>
         <!-- Actions -->
         <div>
+            <button @click="proportio.navToEdit()">Изменить</button>
             <button @click="store.add()">Добавить ингредиент</button>
         </div>
     </div>
@@ -27,8 +28,10 @@
 
 <script setup>
 import { useIngredientsStore } from '@/stores/ingredients'
+import { useProportioStore } from '@/stores/proportio'
 import OriginalAmount from '@/components/OriginalAmount.vue'
 
+const proportio = useProportioStore()
 const store = useIngredientsStore()
 </script>
 

@@ -1,7 +1,14 @@
 <template>
     <div>
         <div>
-            CalculatorViewNav
+            <AppNavBar title="Пересчитать рецепт">
+                <template #left-menu>
+                    <button>Меню</button>
+                </template>
+                <template #right-menu>
+                    <button @click="proportio.navToHelp()">Помощь</button>
+                </template>
+            </AppNavBar>
         </div>
         <div>
             <!-- Mode toggle -->
@@ -25,10 +32,13 @@
 <script setup>
 import { ref } from 'vue'
 import { useIngredientsStore } from '@/stores/ingredients'
+import AppNavBar from '@/components/AppNavBar.vue'
 import OriginalTable from '@/components/OriginalTable.vue'
 import ScaledTable from '@/components/ScaledTable.vue'
+import { useProportioStore } from '@/stores/proportio'
 
 
+const proportio = useProportioStore()
 const store = useIngredientsStore()
 
 const Modes = Object.freeze({
