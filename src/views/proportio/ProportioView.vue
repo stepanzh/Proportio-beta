@@ -1,9 +1,7 @@
 <template>
-    <div class="app-screen">
-        <CalculatorView v-if="proportio.currentScreen == proportio.screens.calc" />
-        <EditView v-if="proportio.currentScreen == proportio.screens.edit" />
-        <div v-if="proportio.currentScreen == proportio.screens.help">Help screen</div>
-    </div>
+    <CalculatorView v-if="proportio.currentScreen == proportio.screens.calc" />
+    <EditView v-if="proportio.currentScreen == proportio.screens.edit" />
+    <div v-if="proportio.currentScreen == proportio.screens.help">Help screen</div>
 </template>
 
 

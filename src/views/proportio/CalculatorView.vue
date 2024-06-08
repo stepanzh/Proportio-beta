@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div>
+    <AppScreen>
+        <template #nav>
             <AppNavBar title="Пересчитать рецепт">
                 <template #left-menu>
                     <button>Меню</button>
@@ -9,8 +9,9 @@
                     <button @click="proportio.navToHelp()">Помощь</button>
                 </template>
             </AppNavBar>
-        </div>
-        <div>
+        </template>
+
+        <template #body>
             <!-- Mode toggle -->
             <div>
                 <button @click="setOriginal">Как в рецепте</button>
@@ -21,11 +22,12 @@
             <!-- Table and actions -->
             <div>
                 <div>Здесь будет заголовок таблицы</div>
+                <!-- TODO: state when there is no ingredients -->
                 <OriginalTable v-if="mode === Modes.original" />
                 <ScaledTable v-if="mode === Modes.scale" />
             </div>
-        </div>
-    </div>
+        </template>
+    </AppScreen>
 </template>
 
 
@@ -33,6 +35,7 @@
 import { ref } from 'vue'
 import { useProportioCalculatorStore } from '@/stores/proportioCalculator'
 import AppNavBar from '@/components/AppNavBar.vue'
+import AppScreen from '@/components/AppScreen.vue'
 import OriginalTable from '@/components/OriginalTable.vue'
 import ScaledTable from '@/components/ScaledTable.vue'
 import { useProportioNavStore } from '@/stores/proportioNav'
