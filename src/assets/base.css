@@ -1,13 +1,18 @@
 :root {
-    --blue-ribbon-400: #529fff;
-    --red-orange-500: #f93224;
-    --shuttle-gray-200: #cecfd3;
-    --shuttle-gray-300: #acaeb4;
+  --blue-ribbon-400: #529fff;
+  --blue-ribbon-600: #0d51fd;
+  --blue-ribbon-700: #0c3fe9;
+  --blue-ribbon-800: #1134BC;
+  --red-orange-500: #f93224;
+  --shuttle-gray-200: #cecfd3;
+  --shuttle-gray-300: #acaeb4;
+  --weight-regular: 400;
+  --weight-semibold: 600;
 }
 
 body {
   font-family: 'Nunito', sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: var(--weight-regular);
   font-style: normal;
 }

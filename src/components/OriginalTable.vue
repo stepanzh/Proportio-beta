@@ -3,8 +3,8 @@
         <div v-for="ingr in store.ingredients" :key="ingr.id">
             <!-- One row -->
             <div class="table-row">
-                <TextField v-model="ingr.name" class="cell-name"/>
-                <OriginalAmount v-model="ingr.originalAmount" class="cell-amount"/>
+                <TextField v-model="ingr.name" class="cell-name" />
+                <OriginalAmount v-model="ingr.originalAmount" class="cell-amount" />
                 <TextField v-model="ingr.unit" class="cell-unit" />
             </div>
             <!-- Debug info -->
@@ -20,7 +20,11 @@
         <!-- Actions -->
         <div>
             <button @click="proportio.navToEdit()">Изменить</button>
-            <button @click="store.add()">Добавить ингредиент</button>
+            <ButtonFilledPrimary @click="store.add()" label="Добавить ингредиент">
+                <template #icon>
+                    <PlusCircleIcon />
+                </template>
+            </ButtonFilledPrimary>
         </div>
     </div>
 </template>
@@ -30,6 +34,8 @@
 import { useProportioCalculatorStore } from '@/stores/proportioCalculator'
 import { useProportioNavStore } from '@/stores/proportioNav'
 import OriginalAmount from '@/components/OriginalAmount.vue'
+import ButtonFilledPrimary from '@/ui/ButtonFilledPrimary.vue'
+import { PlusCircleIcon } from '@heroicons/vue/16/solid'
 
 const proportio = useProportioNavStore()
 const store = useProportioCalculatorStore()
