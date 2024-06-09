@@ -3,6 +3,9 @@ const getVariableName = (x) => Object.keys(x)[0]
 import { ArrowLeftIcon as ArrowLeftIconOutline } from '@heroicons/vue/24/outline'
 ArrowLeftIconOutline.__name = getVariableName({ ArrowLeftIconOutline })
 
+import { ArrowsUpDownIcon as ArrowsUpDownIconMini } from '@heroicons/vue/16/solid'
+ArrowsUpDownIconMini.__name = getVariableName({ ArrowsUpDownIconMini })
+
 import { Bars3Icon as Bars3IconOutline } from '@heroicons/vue/24/outline'
 Bars3IconOutline.__name = getVariableName({ Bars3IconOutline })
 
@@ -21,6 +24,7 @@ QuestionMarkCircleIconOutline.__name = getVariableName({ QuestionMarkCircleIconO
 
 export default [
     ArrowLeftIconOutline,
+    ArrowsUpDownIconMini,
     Bars3IconOutline,
     CalculatorIconMini,
     ListBulletIconMini,

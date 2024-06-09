@@ -21,7 +21,7 @@
         <div>
             <PButton @click="proportio.navToEdit()" iconOnly="true" class="btn-filled-secondary">
                 <template #icon>
-                    <PlusCircleIconMini />
+                    <ArrowsUpDownIconMini />
                 </template>
             </PButton>
             <PButton @click="store.add()" label="Добавить ингредиент" class="btn-filled-primary">
