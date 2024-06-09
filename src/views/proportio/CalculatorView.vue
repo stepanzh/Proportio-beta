@@ -3,10 +3,14 @@
         <template #nav>
             <AppNavBar title="Пересчитать рецепт">
                 <template #left-menu>
-                    <button>Меню</button>
+                    <PIconButton @click="alert('Меню пока не реализовано')">
+                        <Bars3IconOutline />
+                    </PIconButton>
                 </template>
                 <template #right-menu>
-                    <button @click="proportio.navToHelp()">Помощь</button>
+                    <PIconButton @click="proportio.navToHelp()">
+                        <QuestionMarkCircleIconOutline />
+                    </PIconButton>
                 </template>
             </AppNavBar>
         </template>
