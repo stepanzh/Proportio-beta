@@ -20,11 +20,11 @@
         <!-- Actions -->
         <div>
             <button @click="proportio.navToEdit()">Изменить</button>
-            <ButtonFilledPrimary @click="store.add()" label="Добавить ингредиент">
+            <PButtonTemplate @click="store.add()" label="Добавить ингредиент" class="btn-filled-primary">
                 <template #icon>
                     <PlusCircleIcon />
                 </template>
-            </ButtonFilledPrimary>
+            </PButtonTemplate>
         </div>
     </div>
 </template>
@@ -34,7 +34,6 @@
 import { useProportioCalculatorStore } from '@/stores/proportioCalculator'
 import { useProportioNavStore } from '@/stores/proportioNav'
 import OriginalAmount from '@/components/OriginalAmount.vue'
-import ButtonFilledPrimary from '@/ui/ButtonFilledPrimary.vue'
 import { PlusCircleIcon } from '@heroicons/vue/16/solid'
 
 const proportio = useProportioNavStore()
