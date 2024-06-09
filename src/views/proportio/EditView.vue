@@ -3,7 +3,9 @@
         <template #nav>
             <AppNavBar title="Изменить раскладку">
                 <template #left-menu>
-                    <button @click="proportio.navToCalc()">Назад</button>
+                    <PIconButton @click="proportio.navToCalc()">
+                        <ArrowLeftIconOutline />
+                    </PIconButton>
                 </template>
             </AppNavBar>
         </template>
