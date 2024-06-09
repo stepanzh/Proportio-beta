@@ -17,14 +17,16 @@
 
         <template #body>
             <!-- Mode toggle -->
-            <div>
+            <div class="mode-toggle">
                 <PButton @click="setOriginal" label="Как в рецепте"
+                    class="mode-toggle__left"
                     :class="{ 'btn-filled-primary': mode === Modes.original, 'btn-outlined': mode === Modes.scale }">
                     <template #icon>
                         <ListBulletIconMini />
                     </template>
                 </PButton>
                 <PButton @click="setScaled" label="Пересчитать"
+                    class="mode-toggle__right"
                     :class="{ 'btn-filled-primary': mode === Modes.scale, 'btn-outlined': mode === Modes.original }">
                     <template #icon>
                         <CalculatorIconMini />
@@ -101,5 +103,27 @@ function setScaled() {
 .cell-unit {
     overflow: hidden;
     white-space: nowrap;
+}
+
+
+.mode-toggle {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.btn.mode-toggle__left,
+.btn.mode-toggle__right {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn.mode-toggle__left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn.mode-toggle__right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 </style>

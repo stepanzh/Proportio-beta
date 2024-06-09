@@ -8,13 +8,13 @@
                 <span class="cell-unit">{{ ingr.unit === '' ? 'empty-unit' : ingr.unit }}</span>
             </div>
             <!-- Debug info -->
-            <div>
+            <!-- <div>
                 <span>o = {{ ingr.originalAmount }};</span>
                 <span>s = {{ ingr.scaledAmount }};</span>
                 <span>n = {{ ingr.name }};</span>
                 <span>u = {{ ingr.unit }};</span>
                 <span>i = {{ ingr.id }};</span>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>

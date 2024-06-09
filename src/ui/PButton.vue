@@ -38,6 +38,7 @@ const props = defineProps({
 .btn__content {
     /* Overpower (?) */
     display: flex;
+    justify-content: center;
     gap: 4px;
 }
 
