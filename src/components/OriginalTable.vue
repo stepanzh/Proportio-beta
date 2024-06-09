@@ -1,22 +1,14 @@
 <template>
     <div>
-        <div v-for="ingr in store.ingredients" :key="ingr.id">
-            <!-- One row -->
-            <div class="table-row">
+        <!-- Table -->
+        <div class="calc-table">
+            <div v-for="ingr in store.ingredients" :key="ingr.id" class="table-row">
                 <TextField v-model="ingr.name" class="cell-name" />
                 <OriginalAmount v-model="ingr.originalAmount" class="cell-amount" />
                 <TextField v-model="ingr.unit" class="cell-unit" />
             </div>
-            <!-- Debug info -->
-            <!-- <div>
-                <span>o = {{ ingr.originalAmount }};</span>
-                <span>s = {{ ingr.scaledAmount }};</span>
-                <span>n = {{ ingr.name }};</span>
-                <span>d = {{ ingr.displayedName }};</span>
-                <span>u = {{ ingr.unit }};</span>
-                <span>i = {{ ingr.id }};</span>
-            </div> -->
         </div>
+
         <!-- Actions -->
         <div>
             <PButton @click="proportio.navToEdit()" iconOnly="true" class="btn-filled-secondary">

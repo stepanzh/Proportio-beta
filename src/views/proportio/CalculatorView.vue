@@ -86,6 +86,11 @@ function setScaled() {
 
 
 <style>
+.calc-table {
+  display: grid;
+  gap: 12px;
+}
+
 .table-row {
     display: grid;
     grid-template-columns: minmax(128px, 320px) minmax(64px, 72px) minmax(56px, 72px);
