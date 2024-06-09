@@ -19,7 +19,11 @@
         </div>
         <!-- Actions -->
         <div>
-            <button @click="proportio.navToEdit()">Изменить</button>
+            <PButton @click="proportio.navToEdit()" iconOnly="true" class="btn-filled-secondary">
+                <template #icon>
+                    <PlusCircleIconMini />
+                </template>
+            </PButton>
             <PButton @click="store.add()" label="Добавить ингредиент" class="btn-filled-primary">
                 <template #icon>
                     <PlusCircleIconMini />

@@ -3,7 +3,7 @@
         <template #nav>
             <AppNavBar title="Пересчитать рецепт">
                 <template #left-menu>
-                    <PIconButton @click="alert('Меню пока не реализовано')">
+                    <PIconButton>
                         <Bars3IconOutline />
                     </PIconButton>
                 </template>
