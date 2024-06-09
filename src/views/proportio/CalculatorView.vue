@@ -14,8 +14,8 @@
         <template #body>
             <!-- Mode toggle -->
             <div>
-                <PButtonTemplate @click="setOriginal" label="Как в рецепте" :class="{ 'btn-filled-primary': mode === Modes.original, 'btn-outlined': mode === Modes.scale }" />
-                <PButtonTemplate @click="setScaled" label="Пересчитать" :class="{ 'btn-filled-primary': mode === Modes.scale, 'btn-outlined': mode === Modes.original }"/>
+                <PButton @click="setOriginal" label="Как в рецепте" :class="{ 'btn-filled-primary': mode === Modes.original, 'btn-outlined': mode === Modes.scale }" />
+                <PButton @click="setScaled" label="Пересчитать" :class="{ 'btn-filled-primary': mode === Modes.scale, 'btn-outlined': mode === Modes.original }"/>
             </div>
 
             <!-- Table and actions -->

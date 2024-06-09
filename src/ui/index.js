@@ -1,7 +1,7 @@
-import PButtonTemplate from '@/ui/PButtonTemplate.vue'
+import PButton from '@/ui/PButton.vue'
 import TextField from '@/ui/TextField.vue'
 
 export default [
-    PButtonTemplate,
+    PButton,
     TextField,
 ]
