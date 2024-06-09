@@ -10,7 +10,7 @@ const model = defineModel()
 <style>
 .inp {
     box-sizing: border-box;
-    padding: 5px 8px 3px 8px;
+    padding: 7px 8px 5px 8px;
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
     line-height: 1;
