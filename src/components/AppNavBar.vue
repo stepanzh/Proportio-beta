@@ -30,6 +30,7 @@ const props = defineProps({
 .app-nav {
     display: grid;
     grid-template-columns: auto 1fr auto;
+    align-items: center;
     gap: 8px;
 }
 .app-nav__title {
