@@ -6,7 +6,7 @@
         </div>
 
         <!-- Заголовок -->
-        <span>{{ title }}</span>
+        <span class="app-nav__title">{{ title }}</span>
 
         <!-- Правое меню -->
         <div>
@@ -31,5 +31,10 @@ const props = defineProps({
     display: grid;
     grid-template-columns: auto 1fr auto;
     gap: 8px;
+}
+.app-nav__title {
+    font-size: 18px;
+    line-height: 1;
+    font-weight: var(--weight-semibold);
 }
 </style>
