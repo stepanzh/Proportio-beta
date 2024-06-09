@@ -14,8 +14,18 @@
         <template #body>
             <!-- Mode toggle -->
             <div>
-                <PButton @click="setOriginal" label="Как в рецепте" :class="{ 'btn-filled-primary': mode === Modes.original, 'btn-outlined': mode === Modes.scale }" />
-                <PButton @click="setScaled" label="Пересчитать" :class="{ 'btn-filled-primary': mode === Modes.scale, 'btn-outlined': mode === Modes.original }"/>
+                <PButton @click="setOriginal" label="Как в рецепте"
+                    :class="{ 'btn-filled-primary': mode === Modes.original, 'btn-outlined': mode === Modes.scale }">
+                    <template #icon>
+                        <ListBulletIconMini />
+                    </template>
+                </PButton>
+                <PButton @click="setScaled" label="Пересчитать"
+                    :class="{ 'btn-filled-primary': mode === Modes.scale, 'btn-outlined': mode === Modes.original }">
+                    <template #icon>
+                        <CalculatorIconMini />
+                    </template>
+                </PButton>
             </div>
 
             <!-- Table and actions -->

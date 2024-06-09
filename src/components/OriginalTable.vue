@@ -22,7 +22,7 @@
             <button @click="proportio.navToEdit()">Изменить</button>
             <PButton @click="store.add()" label="Добавить ингредиент" class="btn-filled-primary">
                 <template #icon>
-                    <PlusCircleIcon />
+                    <PlusCircleIconMini />
                 </template>
             </PButton>
         </div>
@@ -34,7 +34,6 @@
 import { useProportioCalculatorStore } from '@/stores/proportioCalculator'
 import { useProportioNavStore } from '@/stores/proportioNav'
 import OriginalAmount from '@/components/OriginalAmount.vue'
-import { PlusCircleIcon } from '@heroicons/vue/16/solid'
 
 const proportio = useProportioNavStore()
 const store = useProportioCalculatorStore()
