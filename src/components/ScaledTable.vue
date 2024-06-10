@@ -3,7 +3,7 @@
         <div class="calc-table">
             <div v-for="ingr in store.ingredients" :key="ingr.id" class="table-row">
                 <span class="cell-name">{{ ingr.displayedName }}</span>
-                <ScaledAmount v-model="ingr.scaledAmount" class="cell-amount" />
+                <ScaledAmount v-model="ingr.scaledAmount" :placeholder="ingr.originalAmount" class="cell-amount" />
                 <span class="cell-unit">{{ ingr.unit }}</span>
             </div>
         </div>

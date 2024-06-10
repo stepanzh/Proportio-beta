@@ -3,9 +3,9 @@
         <!-- Table -->
         <div class="calc-table">
             <div v-for="ingr in store.ingredients" :key="ingr.id" class="table-row">
-                <TextField v-model="ingr.name" class="cell-name" />
-                <OriginalAmount v-model="ingr.originalAmount" class="cell-amount" />
-                <TextField v-model="ingr.unit" class="cell-unit" />
+                <TextField v-model="ingr.name" placeholder="Ингредиент" class="cell-name" />
+                <OriginalAmount v-model="ingr.originalAmount" placeholder="250" class="cell-amount" />
+                <TextField v-model="ingr.unit" placeholder="гр" class="cell-unit" />
             </div>
         </div>
 
