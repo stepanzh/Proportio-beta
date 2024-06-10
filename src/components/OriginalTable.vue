@@ -11,7 +11,7 @@
 
         <!-- Actions -->
         <div>
-            <PButton @click="proportio.navToEdit()" iconOnly="true" class="btn-filled-secondary">
+            <PButton @click="proportio.navToEdit()" :iconOnly="true" class="btn-filled-secondary">
                 <template #icon>
                     <ArrowsUpDownIconMini />
                 </template>
