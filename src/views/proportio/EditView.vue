@@ -14,7 +14,7 @@
             <header class="txt-h-caption">
                 Список ингредиентов
             </header>
-            <main v-if="store.ingredients.length">
+            <main class="edit-view-main" v-if="store.ingredients.length">
                 <div v-for="ingr in store.ingredients" :key="ingr.id" class="edit-item">
                     <PIconButton @click="store.remove(ingr.id)" class="red">
                         <TrashIconOutline />
@@ -50,6 +50,10 @@ const store = useProportioCalculatorStore()
 
 
 <style scoped>
+.edit-view-main {
+    margin-top: 16px;
+}
+
 .edit-item {
     display: grid;
     grid-template-columns: auto 1fr auto;
