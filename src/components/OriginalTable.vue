@@ -16,7 +16,7 @@
                     <ArrowsUpDownIconMini />
                 </template>
             </PButton>
-            <PButton @click="store.add()" label="Добавить ингредиент" class="btn-filled-primary">
+            <PButton @click="store.add()" label="Добавить" class="btn-filled-primary">
                 <template #icon>
                     <PlusCircleIconMini />
                 </template>
