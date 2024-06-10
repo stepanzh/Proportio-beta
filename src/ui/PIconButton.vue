@@ -28,4 +28,9 @@ const __name = 'PIconButton'
 
 .btn-icon:hover { background-color: var(--blue-ribbon-100); }
 .btn-icon:active { background-color: var(--blue-ribbon-200); }
+
+
+.btn-icon.red { color: var(--red-orange-600); }
+.btn-icon.red:hover { background-color: var(--red-orange-100); }
+.btn-icon.red:active { background-color: var(--red-orange-200); }
 </style>

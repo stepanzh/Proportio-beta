@@ -7,7 +7,10 @@
   --blue-ribbon-700: #0c3fe9;
   --blue-ribbon-800: #1134BC;
   --blue-ribbon-900: #143194;
+  --red-orange-100: #ffe2e0;
+  --red-orange-200: #ffcbc7;
   --red-orange-500: #f93224;
+  --red-orange-600: #e7281b;
   --shuttle-gray-200: #cecfd3;
   --shuttle-gray-300: #acaeb4;
   --shuttle-gray-400: #82858e;
@@ -22,4 +25,10 @@ body {
   font-weight: var(--weight-regular);
   font-style: normal;
   color: var(--shuttle-gray-900);
+}
+
+.txt-h-caption {
+  font-size: 14px;
+  font-weight: var(--weight-semibold);
+  color: var(--shuttle-gray-400);
 }

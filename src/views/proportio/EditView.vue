@@ -11,17 +11,25 @@
         </template>
 
         <template #body>
-            <div>Список ингредиентов</div>
-            <ul v-if="store.ingredients.length">
-                <li v-for="ingr in store.ingredients" :key="ingr.id">
-                    <button @click="store.remove(ingr.id)">Удалить</button>
-                    <span>{{ ingr.displayedName }}</span>
+            <header class="txt-h-caption">
+                Список ингредиентов
+            </header>
+            <main v-if="store.ingredients.length">
+                <div v-for="ingr in store.ingredients" :key="ingr.id" class="edit-item">
+                    <PIconButton @click="store.remove(ingr.id)" class="red">
+                        <TrashIconOutline />
+                    </PIconButton>
+                    <span class="edit-item__name">{{ ingr.displayedName }}</span>
                     <span>
-                        <button @click="store.moveTowardsFirstOnce(ingr.id)">↑</button>
-                        <button @click="store.moveTowardsLastOnce(ingr.id)">↓</button>
+                        <PIconButton @click="store.moveTowardsFirstOnce(ingr.id)">
+                            <ArrowUpIconOutline />
+                        </PIconButton>
+                        <PIconButton @click="store.moveTowardsLastOnce(ingr.id)">
+                            <ArrowDownIconOutline />
+                        </PIconButton>
                     </span>
-                </li>
-            </ul>
+                </div>
+            </main>
             <div v-else>
                 Ингредиентов нет, добавьте в калькуляторе
             </div>
@@ -42,5 +50,20 @@ const store = useProportioCalculatorStore()
 
 
 <style scoped>
+.edit-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--shuttle-gray-200);
+    padding: 6px 0;
+}
 
+.edit-item:first-child {
+    border-top: 1px solid var(--shuttle-gray-200);
+}
+
+.edit-item__name {
+    font-weight: var(--weight-semibold);
+}
 </style>

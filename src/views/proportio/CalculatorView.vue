@@ -37,9 +37,9 @@
             <!-- Table and actions -->
             <div>
                 <div class="table-row">
-                    <span class="table-row__header">Ингредиент</span>
-                    <span class="table-row__header">Кол-во</span>
-                    <span class="table-row__header">Ед. изм.</span>
+                    <span class="txt-h-caption">Ингредиент</span>
+                    <span class="txt-h-caption">Кол-во</span>
+                    <span class="txt-h-caption">Ед. изм.</span>
                 </div>
                 <!-- TODO: state when there is no ingredients -->
                 <OriginalTable v-if="mode === Modes.original" />
@@ -97,12 +97,6 @@ function setScaled() {
     align-items: center;
     padding: 12px 0;
     border-bottom: 1px solid var(--shuttle-gray-200);
-}
-
-.table-row__header {
-    font-size: 14px;
-    font-weight: var(--weight-semibold);
-    color: var(--shuttle-gray-400)
 }
 
 .cell-name,
