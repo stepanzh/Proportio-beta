@@ -36,7 +36,7 @@
 
             <!-- Table and actions -->
             <div>
-                <div class="table-row">
+                <div class="calc-table-header">
                     <span class="txt-h-caption">Ингредиент</span>
                     <span class="txt-h-caption">Кол-во</span>
                     <span class="txt-h-caption">Ед. изм.</span>
@@ -90,7 +90,8 @@ function setScaled() {
 
 
 <style>
-.table-row {
+.table-row,
+.calc-table-header {
     display: grid;
     grid-template-columns: minmax(128px, 320px) minmax(64px, 72px) minmax(56px, 72px);
     gap: 8px;
@@ -98,6 +99,8 @@ function setScaled() {
     padding: 12px 0;
     border-bottom: 1px solid var(--shuttle-gray-200);
 }
+
+.calc-table-header { margin-top: 4px; }
 
 .cell-name,
 .cell-amount,
