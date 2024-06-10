@@ -36,7 +36,11 @@
 
             <!-- Table and actions -->
             <div>
-                <div>Здесь будет заголовок таблицы</div>
+                <div class="table-row">
+                    <span class="table-row__header">Ингредиент</span>
+                    <span class="table-row__header">Кол-во</span>
+                    <span class="table-row__header">Ед. изм.</span>
+                </div>
                 <!-- TODO: state when there is no ingredients -->
                 <OriginalTable v-if="mode === Modes.original" />
                 <ScaledTable v-if="mode === Modes.scale" />
@@ -93,6 +97,12 @@ function setScaled() {
     align-items: center;
     padding: 12px 0;
     border-bottom: 1px solid var(--shuttle-gray-200);
+}
+
+.table-row__header {
+    font-size: 14px;
+    font-weight: var(--weight-semibold);
+    color: var(--shuttle-gray-400)
 }
 
 .cell-name,
