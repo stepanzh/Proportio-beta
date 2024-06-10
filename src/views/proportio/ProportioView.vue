@@ -32,7 +32,7 @@ proportio.navToCalc()
     background-color: white;
     
     /* TODO: minus site-nav height */
-    height: 100vh;
+    min-height: 100vh;
 }
 
 @media screen and (min-width: 512px) {
