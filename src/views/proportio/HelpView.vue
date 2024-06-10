@@ -11,18 +11,20 @@
         </template>
         <template #body>
             <header>
-                <h3>Содержание</h3>
+                <h3 class="txt-h-caption">Содержание</h3>
                 <nav>
-                    <ul>
-                        <li v-for="section in sections">
+                    <ul class="help-toc-list" >
+                        <li class="help-toc-list__item" v-for="section in sections">
                             <a :href="`#${anchorUrlForSection(section)}`">{{ section.tocTitle}}</a>
                         </li>
                     </ul>
                 </nav>
             </header>
             <main>
-                <section v-for="section in sections" :key="section.id">
-                    <h2 :id="anchorUrlForSection(section)">{{ section.title }}</h2>
+                <section v-for="section in sections" :key="section.id" class="help-section">
+                    <h2 :id="anchorUrlForSection(section)" class="txt-h3">
+                        {{ section.title }}
+                    </h2>
                     <ol>
                         <li v-for="step in section.steps">{{ step }}</li>
                     </ol>
@@ -72,5 +74,30 @@ const sections = [
 
 
 <style scoped>
+.help-toc-list {
+    margin: 0;
+    padding: 0;
+}
 
+.help-toc-list__item {
+    font-size: 14px;
+    font-weight: var(--weight-semibold);
+}
+
+.help-section {
+    margin-top: 24px;
+}
+
+.help-section .txt-h3 {
+    margin-bottom: 4px;
+}
+
+ol {
+    color: var(--shuttle-gray-600);
+}
+
+ol li::marker {
+    font-size: 14px;
+    color: var(--shuttle-gray-400);
+}
 </style>
