@@ -1,6 +1,9 @@
 <template>
     <AppScreen>
         <template #nav>
+            <PToast message="Hello" :severity="toastSeverity" :isVisible="isToastVisible" @hide="isToastVisible = false">
+                {{ toastMessage }}
+            </PToast>
             <AppNavBar title="Пересчитать рецепт">
                 <template #left-menu>
                     <PIconButton>
@@ -68,6 +71,13 @@ const Modes = Object.freeze({
     scale: 2
 })
 
+
+// TODO: Refactor and put into hook
+const toastMessage = ref('')
+const toastSeverity = ref('info')
+const isToastVisible = ref(false)
+
+
 const mode = ref(Modes.original)
 
 function setOriginal() { mode.value = Modes.original }
@@ -75,14 +85,19 @@ function setOriginal() { mode.value = Modes.original }
 function setScaled() {
     // Validate original amounts
     const isAllOriginalAmountAreCorrect = !store.ingredients.some((ingr) => isNaN(ingr.originalAmount))
-    const isValid = isAllOriginalAmountAreCorrect;
-
-    if (!isValid) {
-        alert('У некоторых ингредиентов не указано кол-во')
+    if (!isAllOriginalAmountAreCorrect) {
+        toastMessage.value = 'Упс. Есть ингредиенты без количества'
+        toastSeverity.value = 'error'
+        isToastVisible.value = true
         return
     }
 
-    // TODO: If enterred only one ingredient, show warning
+    // If enterred only one ingredient, show warning
+    if (store.ingredients.length == 1 && mode.value == Modes.original) {
+        toastMessage.value = 'Лучше добавить ещё один ингредиент'
+        toastSeverity.value = 'info'
+        isToastVisible.value = true
+    }
 
     mode.value = Modes.scale
 }

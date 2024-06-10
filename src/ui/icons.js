@@ -18,6 +18,15 @@ Bars3IconOutline.__name = getVariableName({ Bars3IconOutline })
 import { CalculatorIcon as CalculatorIconMini } from '@heroicons/vue/16/solid'
 CalculatorIconMini.__name = getVariableName({ CalculatorIconMini })
 
+import { CheckCircleIcon as CheckCircleIconMini } from '@heroicons/vue/16/solid'
+CheckCircleIconMini.__name = getVariableName({ CheckCircleIconMini })
+
+import { ExclamationCircleIcon as ExclamationCircleIconMini } from '@heroicons/vue/16/solid'
+ExclamationCircleIconMini.__name = getVariableName({ ExclamationCircleIconMini: ExclamationCircleIconMini })
+
+import { ExclamationTriangleIcon as ExclamationTriangleIconMini } from '@heroicons/vue/16/solid'
+ExclamationTriangleIconMini.__name = getVariableName({ ExclamationTriangleIconMini: ExclamationTriangleIconMini })
+
 import { ListBulletIcon as ListBulletIconMini } from '@heroicons/vue/16/solid'
 ListBulletIconMini.__name = getVariableName({ ListBulletIconMini })
 
@@ -30,6 +39,9 @@ TrashIconOutline.__name = getVariableName({ TrashIconOutline })
 import { QuestionMarkCircleIcon as QuestionMarkCircleIconOutline } from '@heroicons/vue/24/outline'
 QuestionMarkCircleIconOutline.__name = getVariableName({ QuestionMarkCircleIconOutline })
 
+import { XCircleIcon as XCircleIconMini } from '@heroicons/vue/16/solid'
+XCircleIconMini.__name = getVariableName({ XCircleIconMini })
+
 
 export default [
     ArrowDownIconOutline,
@@ -38,8 +50,12 @@ export default [
     ArrowsUpDownIconMini,
     Bars3IconOutline,
     CalculatorIconMini,
+    CheckCircleIconMini,
+    ExclamationTriangleIconMini,
+    ExclamationCircleIconMini,
     ListBulletIconMini,
     PlusCircleIconMini,
     TrashIconOutline,
     QuestionMarkCircleIconOutline,
+    XCircleIconMini,
 ]
