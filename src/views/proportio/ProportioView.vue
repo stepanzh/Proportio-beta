@@ -30,7 +30,6 @@ proportio.navToCalc()
 .p-app-card {
     justify-content: center;
     background-color: white;
-    
     /* TODO: minus site-nav height */
     min-height: 100vh;
 }
@@ -39,6 +38,7 @@ proportio.navToCalc()
     .p-app-card {
         width: 512px;
         height: auto;
+        min-height: 512px;
         padding: 24px 32px;
         border-radius: 16px;
         margin: 0 auto;
