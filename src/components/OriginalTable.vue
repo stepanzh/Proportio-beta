@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- Table -->
-        <div class="calc-table">
+        <div>
             <div v-for="ingr in store.ingredients" :key="ingr.id" class="table-row">
                 <TextField v-model="ingr.name" placeholder="Ингредиент" class="cell-name" />
                 <OriginalAmount v-model="ingr.originalAmount" placeholder="250" class="cell-amount" />
@@ -10,7 +10,7 @@
         </div>
 
         <!-- Actions -->
-        <div>
+        <div class="table-orig-actions">
             <PButton @click="proportio.navToEdit()" :iconOnly="true" class="btn-filled-secondary">
                 <template #icon>
                     <ArrowsUpDownIconMini />
@@ -37,5 +37,9 @@ const store = useProportioCalculatorStore()
 
 
 <style scoped>
-
+.table-orig-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
 </style>

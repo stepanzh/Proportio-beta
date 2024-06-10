@@ -1,9 +1,15 @@
 <template>
-    <div class="app-screen">
+    <div class="p-app-base">
+
         <!-- In-app navigation -->
-         <slot name="nav"></slot>
+        <div class="p-app-base__nav-wrapper">
+            <slot name="nav" />
+        </div>
+
         <!-- Screen body -->
-         <slot name="body"></slot>
+        <div class="p-app-base__body-wrapper">
+            <slot name="body" />
+        </div>
     </div>
 </template>
 
@@ -14,5 +20,15 @@
 
 
 <style scoped>
+.p-app-base {
+    max-width: 512px;
+}
 
+.p-app-base__nav-wrapper {
+    padding: 8px;
+}
+
+.p-app-base__body-wrapper {
+    padding: 0 16px 16px 16px;
+}
 </style>

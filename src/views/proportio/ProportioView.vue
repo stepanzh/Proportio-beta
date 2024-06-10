@@ -1,7 +1,11 @@
 <template>
-    <CalculatorView v-if="proportio.currentScreen == proportio.screens.calc" />
-    <EditView v-if="proportio.currentScreen == proportio.screens.edit" />
-    <HelpView v-if="proportio.currentScreen == proportio.screens.help" />
+    <div class-="p-view-wrapper">
+        <div class="p-app-card">
+            <CalculatorView v-if="proportio.currentScreen == proportio.screens.calc" />
+            <EditView v-if="proportio.currentScreen == proportio.screens.edit" />
+            <HelpView v-if="proportio.currentScreen == proportio.screens.help" />
+        </div>
+    </div>
 </template>
 
 
@@ -17,6 +21,28 @@ proportio.navToCalc()
 </script>
 
 
-<style scoped>
+<style>
+.p-view-wrapper {
+    display: flex;
+    justify-content: center;
+}
 
+.p-app-card {
+    justify-content: center;
+    background-color: white;
+    
+    /* TODO: minus site-nav height */
+    height: 100vh;
+}
+
+@media screen and (min-width: 512px) {
+    .p-app-card {
+        width: 512px;
+        height: auto;
+        padding: 24px 32px;
+        border-radius: 16px;
+        margin: 0 auto;
+        box-shadow: var(--elevation-3);
+    }
+}
 </style>
