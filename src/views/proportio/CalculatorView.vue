@@ -6,9 +6,16 @@
             </PToast>
             <AppNavBar title="Пересчитать рецепт">
                 <template #left-menu>
-                    <PIconButton>
-                        <Bars3IconOutline />
-                    </PIconButton>
+                    <div class="popup">
+                        <PIconButton @click="isMenuShown = !isMenuShown" id="popupButton">
+                            <Bars3IconOutline />
+                        </PIconButton>
+                        <div class="popup__content popup-menu" v-if="isMenuShown" v-click-outside:popupButton="onPopupOutside">
+                            <p>Открыть</p>
+                            <p>Сохранить</p>
+                            <p>Скопировать</p>
+                        </div>
+                    </div>
                 </template>
                 <template #right-menu>
                     <PIconButton @click="proportio.navToHelp()">
@@ -61,6 +68,7 @@ import AppScreen from '@/components/AppScreen.vue'
 import OriginalTable from '@/components/OriginalTable.vue'
 import ScaledTable from '@/components/ScaledTable.vue'
 import { useProportioNavStore } from '@/stores/proportioNav'
+import PButton from '@/ui/PButton.vue'
 
 
 const proportio = useProportioNavStore()
@@ -101,6 +109,10 @@ function setScaled() {
 
     mode.value = Modes.scale
 }
+
+const isMenuShown = ref(false)
+
+function onPopupOutside() { isMenuShown.value = false }
 </script>
 
 
@@ -149,5 +161,23 @@ function setScaled() {
 .btn.mode-toggle__right {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+}
+
+.popup {
+    position: relative;
+}
+
+.popup__content {
+    top: calc(100% + 2px);
+    position: absolute;
+}
+
+.popup-menu {
+    background-color: white;
+    padding: 12px 8px;
+    border: 1px solid var(--shuttle-gray-100);
+    border-radius: 8px;
+    min-width: 256px;
+    box-shadow: var(--elevation-1);
 }
 </style>
