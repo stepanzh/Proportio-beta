@@ -22,10 +22,16 @@ import { CheckCircleIcon as CheckCircleIconMini } from '@heroicons/vue/16/solid'
 CheckCircleIconMini.__name = getVariableName({ CheckCircleIconMini })
 
 import { ExclamationCircleIcon as ExclamationCircleIconMini } from '@heroicons/vue/16/solid'
-ExclamationCircleIconMini.__name = getVariableName({ ExclamationCircleIconMini: ExclamationCircleIconMini })
+ExclamationCircleIconMini.__name = getVariableName({ ExclamationCircleIconMini })
 
 import { ExclamationTriangleIcon as ExclamationTriangleIconMini } from '@heroicons/vue/16/solid'
-ExclamationTriangleIconMini.__name = getVariableName({ ExclamationTriangleIconMini: ExclamationTriangleIconMini })
+ExclamationTriangleIconMini.__name = getVariableName({ ExclamationTriangleIconMini })
+
+import { HeartIcon as HeartIconMini } from '@heroicons/vue/16/solid'
+HeartIconMini.__name = getVariableName({ HeartIconMini })
+
+import { HeartIcon as HeartIconSolid } from '@heroicons/vue/24/solid'
+HeartIconSolid.__name = getVariableName({ HeartIconSolid })
 
 import { ListBulletIcon as ListBulletIconMini } from '@heroicons/vue/16/solid'
 ListBulletIconMini.__name = getVariableName({ ListBulletIconMini })
@@ -53,6 +59,8 @@ export default [
     CheckCircleIconMini,
     ExclamationTriangleIconMini,
     ExclamationCircleIconMini,
+    HeartIconMini,
+    HeartIconSolid,
     ListBulletIconMini,
     PlusCircleIconMini,
     TrashIconOutline,

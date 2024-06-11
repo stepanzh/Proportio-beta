@@ -7,6 +7,14 @@
                 <span class="cell-unit">{{ ingr.unit }}</span>
             </div>
         </div>
+        <div class="table-scale-actions">
+            <PLinkButton href="https://pay.cloudtips.ru/p/01aa1961" target="_blank">
+                <template #icon>
+                    <HeartIconSolid class='txt-cerise-600' />
+                </template>
+                Поддержать проект
+            </PLinkButton>
+        </div>
     </div>
 </template>
 
@@ -20,5 +28,9 @@ const store = useProportioCalculatorStore()
 
 
 <style scoped>
-
+.table-scale-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 192px;
+}
 </style>

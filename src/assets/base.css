@@ -1,4 +1,5 @@
 :root {
+  --cerise-600: #f50d8c;
   --blue-ribbon-100: #d8e9ff;
   --blue-ribbon-200: #b9d8ff;
   --blue-ribbon-300: #89c0ff;
@@ -83,3 +84,5 @@ ul > li,
 ol > li {
     margin: 4px 0;
 }
+
+.txt-cerise-600 { color: var(--cerise-600); }
