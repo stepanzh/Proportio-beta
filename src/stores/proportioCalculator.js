@@ -26,14 +26,33 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
         return ingr
     }
 
-    function add() {
+    // NOTE: Somehow Pinia does not allow to use { name = undefined, ... } syntax.
+    function add(name = undefined, originalAmount = undefined, unit = undefined) {
         const ingr = emptyIngredient()
+
+        if (name !== undefined) {
+            ingr.name = name
+        }
+
+        if (originalAmount !== undefined) {
+            ingr.originalAmount = originalAmount
+        }
+
+        if (unit !== undefined) {
+            ingr.unit = unit
+        }
+
         ingredients.value.push(ingr)
+        
         // TODO: When there are some components and scale factor, update ingr.scaledAmount
     }
 
     function remove(id) {
         ingredients.value = ingredients.value.filter((x) => x.id != id)
+    }
+
+    function clear() {
+        ingredients.value = []
     }
 
     // Moves ingredient with `id` up, if possible
@@ -120,6 +139,7 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
         numberOfIngredients,
         add,
         remove,
+        clear,
         moveTowardsFirstOnce,
         moveTowardsLastOnce,
         emptyIngredient,

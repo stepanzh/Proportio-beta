@@ -17,7 +17,9 @@
                                 <template #icon>
                                     <FolderOpenIconOutline />
                                 </template>
-                                Открыть
+                                    Открыть
+                                    <input type="file" @change="importRecipe" ref="importFileInputRef"
+                                        style="display: none;" accept=".json">
                             </PMenuButton>
                             <PMenuButton @click="exportRecipe">
                                 <template #icon>
@@ -86,6 +88,7 @@ import { useProportioNavStore } from '@/stores/proportioNav'
 import { copyToClipboard } from '@/lib/copyToClipboard'
 import { RecipeExporter } from '@/lib/recipeExporter'
 import { downloadJson } from '@/lib/download'
+import { RecipeImporter } from '@/lib/recipeImporter'
 
 
 const proportio = useProportioNavStore()
@@ -147,6 +150,43 @@ function copyRecipeToClipboard() {
         onFailure: (e) => showToast({ message: 'Не удалось скопировать', severity: 'error' }),
         onSuccess: () => showToast({ message: 'Рецепт скопирован', severity: 'success' }),
     })
+}
+
+const importFileInputRef = ref(null)
+
+function importRecipe() {
+    console.debug(importFileInputRef.value.files[0])
+
+    let file = importFileInputRef.value.files[0]
+    if (file === undefined) {
+        return
+    }
+
+    let importer = new RecipeImporter()
+    importer.import({
+        file: file,
+        onSuccess: (importedObject) => {
+            try {
+                store.clear()
+                importedObject.original_items.forEach(
+                    (x) => store.add(
+                        x.name,
+                        x.amount,
+                        x.unit
+                    )
+                )
+                showToast({ message: 'Рецепт открыт', severity: 'success' })
+            } catch (e) {
+                showToast({ message: 'Не получилось открыть рецепт', severity: 'error' })
+            } finally {
+                isMenuShown.value = false
+            }
+
+        },
+        onError: showToast({ message: 'Упс. Не удалось открыть рецепт.', severity: 'error' })
+    })
+
+    importFileInputRef.value.value = null
 }
 
 function exportRecipe() {
