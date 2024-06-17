@@ -12,9 +12,10 @@ export function RecipeExporter() {
             throw new Error('Ингредиенты отсутствуют')
         }
 
+        // NOTE: FieldNames are used for backward compatibility
         let objectToSerialize = {
             title: '',
-            original: ingredients.map((ingr) => _ingredientToObject(ingr)),
+            original_items: ingredients.map((ingr) => _ingredientToObject(ingr)),
             credits: {
                 author: '',
                 url: '',
