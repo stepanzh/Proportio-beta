@@ -1,5 +1,5 @@
 <template>
-    <button class="btn btn-menu">
+    <label class="btn btn-menu">
         <div class="btn-menu__content">
             <span class="btn-menu__icon">
                 <slot name="icon" />
@@ -8,7 +8,7 @@
                 <slot />
             </span>
         </div>
-    </button>
+    </label>
 </template>
 
 
