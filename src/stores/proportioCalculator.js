@@ -1,8 +1,13 @@
 import { computed, reactive, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 
+import { prettifyNumber } from '@/utilitites/prettifyNumber'
+
+
 export const useProportioCalculatorStore = defineStore('proportio-calculator', () => {
     const ingredients = ref([])
+
+    const numberOfIngredients = computed(() => ingredients.value.length)
 
     function emptyIngredient() {
         const ingr = reactive({
@@ -84,14 +89,42 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
             })
     }
 
+    function getRecipeAsPlainTextTabular() {
+        if (numberOfIngredients > 0) {
+            console.error('Невозможно создать рецепт в виде строки: рецепт пуст')
+            return
+        }
+
+        let rows = []
+        const colsep = "\t"
+        const rowsep = "\n"  // TODO: Platform independent EOL
+
+        rows.push(["Ингредиент", "Кол-во в рецепте", "Пересчёт", "Единица"].join(colsep));
+
+        for (let i = 0; i < ingredients.value.length; i++) {
+            let ingr = ingredients.value[i]
+            rows.push([
+                ingr.displayedName,
+                ingr.originalAmount,
+                prettifyNumber(ingr.scaledAmount),
+                ingr.unit
+            ].join(colsep))
+        }
+
+        let text = rows.join(rowsep) + rowsep
+        return text
+    }
+
     return {
         ingredients,
+        numberOfIngredients,
         add,
         remove,
         moveTowardsFirstOnce,
         moveTowardsLastOnce,
         emptyIngredient,
         onScaleAmountChanged,
-        updateScaleAmounts
+        updateScaleAmounts,
+        getRecipeAsPlainTextTabular,
     }
 })

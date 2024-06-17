@@ -65,6 +65,7 @@ function hide() {
     background: var(--shuttle-gray-900);
     box-shadow: var(--elevation-1);
     color: white;
+    z-index: 100;
 }
 
 .p-toast__icon {

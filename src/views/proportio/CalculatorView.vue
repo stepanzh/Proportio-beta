@@ -25,7 +25,7 @@
                                 </template>
                                 Сохранить
                             </PMenuButton>
-                            <PMenuButton>
+                            <PMenuButton @click="copyRecipeToClipboard">
                                 <template #icon>
                                     <ClipboardDocumentListIconOutline />
                                 </template>
@@ -83,7 +83,7 @@ import AppScreen from '@/components/AppScreen.vue'
 import OriginalTable from '@/components/OriginalTable.vue'
 import ScaledTable from '@/components/ScaledTable.vue'
 import { useProportioNavStore } from '@/stores/proportioNav'
-import PButton from '@/ui/PButton.vue'
+import { copyToClipboard } from '@/utilitites/copyToClipboard'
 
 
 const proportio = useProportioNavStore()
@@ -114,7 +114,7 @@ function setScaled() {
     }
 
     // If enterred only one ingredient, show warning
-    if (store.ingredients.length == 1 && mode.value == Modes.original) {
+    if (store.numberOfIngredients == 1 && mode.value == Modes.original) {
         showToast({ message: 'Лучше добавить ещё один ингредиент', severity: 'info' })
     }
 
@@ -129,7 +129,22 @@ function showToast({ message, severity = 'info' }) {
     toastMessage.value = message
     toastSeverity.value = severity
     isToastVisible.value = true
-    return
+}
+
+function copyRecipeToClipboard() {
+    // There is some ingredients
+    if (store.numberOfIngredients == 0) {
+        showToast({ message: 'Нечего скопировать. Рецепт пуст.', severity: 'error' })
+        return
+    }
+
+    let recipeAsString = store.getRecipeAsPlainTextTabular()
+
+    copyToClipboard({
+        string: recipeAsString,
+        onFailure: (e) => showToast({ message: 'Не удалось скопировать', severity: 'error' }),
+        onSuccess: () => showToast({ message: 'Рецепт скопирован', severity: 'success' }),
+    })
 }
 </script>
 
