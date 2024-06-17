@@ -109,17 +109,13 @@ function setScaled() {
     // Validate original amounts
     const isAllOriginalAmountAreCorrect = !store.ingredients.some((ingr) => isNaN(ingr.originalAmount))
     if (!isAllOriginalAmountAreCorrect) {
-        toastMessage.value = 'Упс. Есть ингредиенты без количества'
-        toastSeverity.value = 'error'
-        isToastVisible.value = true
+        showToast({ message: 'Упс. Есть ингредиенты без количества', severity: 'error' })
         return
     }
 
     // If enterred only one ingredient, show warning
     if (store.ingredients.length == 1 && mode.value == Modes.original) {
-        toastMessage.value = 'Лучше добавить ещё один ингредиент'
-        toastSeverity.value = 'info'
-        isToastVisible.value = true
+        showToast({ message: 'Лучше добавить ещё один ингредиент', severity: 'info' })
     }
 
     mode.value = Modes.scale
@@ -128,6 +124,13 @@ function setScaled() {
 const isMenuShown = ref(false)
 
 function onPopupOutside() { isMenuShown.value = false }
+
+function showToast({ message, severity = 'info' }) {
+    toastMessage.value = message
+    toastSeverity.value = severity
+    isToastVisible.value = true
+    return
+}
 </script>
 
 
