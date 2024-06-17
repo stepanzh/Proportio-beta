@@ -10,7 +10,7 @@ import '@/assets/app.css'
 const pinia = createPinia()
 const app = createApp(App)
 
-uiComponents.forEach((x) => { console.log(x.__name); app.component(x.__name, x) })
+uiComponents.forEach((x) => { console.debug(x.__name); app.component(x.__name, x) })
 directives.forEach((x) => { app.directive(x.__name, x) })
 
 app.use(pinia)
