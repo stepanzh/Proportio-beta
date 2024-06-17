@@ -83,7 +83,7 @@ import AppScreen from '@/components/AppScreen.vue'
 import OriginalTable from '@/components/OriginalTable.vue'
 import ScaledTable from '@/components/ScaledTable.vue'
 import { useProportioNavStore } from '@/stores/proportioNav'
-import { copyToClipboard } from '@/utilitites/copyToClipboard'
+import { copyToClipboard } from '@/lib/copyToClipboard'
 
 
 const proportio = useProportioNavStore()

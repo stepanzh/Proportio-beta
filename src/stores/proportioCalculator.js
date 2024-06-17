@@ -1,7 +1,7 @@
 import { computed, reactive, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 
-import { prettifyNumber } from '@/utilitites/prettifyNumber'
+import { prettifyNumber } from '@/lib/prettifyNumber'
 
 
 export const useProportioCalculatorStore = defineStore('proportio-calculator', () => {
