@@ -19,7 +19,7 @@
                                 </template>
                                 Открыть
                             </PMenuButton>
-                            <PMenuButton>
+                            <PMenuButton @click="exportRecipe">
                                 <template #icon>
                                     <ArrowDownTrayIconOutline />
                                 </template>
@@ -84,6 +84,8 @@ import OriginalTable from '@/components/OriginalTable.vue'
 import ScaledTable from '@/components/ScaledTable.vue'
 import { useProportioNavStore } from '@/stores/proportioNav'
 import { copyToClipboard } from '@/lib/copyToClipboard'
+import { RecipeExporter } from '@/lib/recipeExporter'
+import { downloadJson } from '@/lib/download'
 
 
 const proportio = useProportioNavStore()
@@ -134,7 +136,7 @@ function showToast({ message, severity = 'info' }) {
 function copyRecipeToClipboard() {
     // There is some ingredients
     if (store.numberOfIngredients == 0) {
-        showToast({ message: 'Нечего скопировать. Рецепт пуст.', severity: 'error' })
+        showToast({ message: 'Рецепт пуст. Добавьте ингредиентов.', severity: 'error' })
         return
     }
 
@@ -145,6 +147,24 @@ function copyRecipeToClipboard() {
         onFailure: (e) => showToast({ message: 'Не удалось скопировать', severity: 'error' }),
         onSuccess: () => showToast({ message: 'Рецепт скопирован', severity: 'success' }),
     })
+}
+
+function exportRecipe() {
+    if (store.numberOfIngredients == 0) {
+        showToast({ message: 'Рецепт пуст. Добавьте ингредиентов.', severity: 'error' })
+        return
+    }
+
+    let exporter = new RecipeExporter()
+    try {
+        let recipeAsJson = exporter.serializeToJson(store.ingredients)
+        downloadJson({ data: recipeAsJson, filename: 'Рецепт.proportio.json' })
+        showToast({ message: 'Рецепт сохранён, проверьте папку с загрузками.'})
+    }
+    catch (e) {
+        console.error(e)
+        showToast({ message: `Не удалось сохранить рецепт.`, severity: 'error' })
+    }
 }
 </script>
 
