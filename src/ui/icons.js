@@ -3,6 +3,9 @@ const getVariableName = (x) => Object.keys(x)[0]
 import { ArrowDownIcon as ArrowDownIconOutline } from '@heroicons/vue/24/outline'
 ArrowDownIconOutline.__name = getVariableName({ ArrowDownIconOutline })
 
+import { ArrowDownTrayIcon as ArrowDownTrayIconOutline } from '@heroicons/vue/24/outline'
+ArrowDownTrayIconOutline.__name = getVariableName({ ArrowDownTrayIconOutline })
+
 import { ArrowLeftIcon as ArrowLeftIconOutline } from '@heroicons/vue/24/outline'
 ArrowLeftIconOutline.__name = getVariableName({ ArrowLeftIconOutline })
 
@@ -21,11 +24,17 @@ CalculatorIconMini.__name = getVariableName({ CalculatorIconMini })
 import { CheckCircleIcon as CheckCircleIconMini } from '@heroicons/vue/16/solid'
 CheckCircleIconMini.__name = getVariableName({ CheckCircleIconMini })
 
+import { ClipboardDocumentListIcon as ClipboardDocumentListIconOutline } from '@heroicons/vue/24/outline'
+ClipboardDocumentListIconOutline.__name = getVariableName({ ClipboardDocumentListIconOutline })
+
 import { ExclamationCircleIcon as ExclamationCircleIconMini } from '@heroicons/vue/16/solid'
 ExclamationCircleIconMini.__name = getVariableName({ ExclamationCircleIconMini })
 
 import { ExclamationTriangleIcon as ExclamationTriangleIconMini } from '@heroicons/vue/16/solid'
 ExclamationTriangleIconMini.__name = getVariableName({ ExclamationTriangleIconMini })
+
+import { FolderOpenIcon as FolderOpenIconOutline } from '@heroicons/vue/24/outline'
+FolderOpenIconOutline.__name = getVariableName({ FolderOpenIconOutline })
 
 import { HeartIcon as HeartIconMini } from '@heroicons/vue/16/solid'
 HeartIconMini.__name = getVariableName({ HeartIconMini })
@@ -51,14 +60,17 @@ XCircleIconMini.__name = getVariableName({ XCircleIconMini })
 
 export default [
     ArrowDownIconOutline,
+    ArrowDownTrayIconOutline,
     ArrowLeftIconOutline,
     ArrowUpIconOutline,
     ArrowsUpDownIconMini,
     Bars3IconOutline,
     CalculatorIconMini,
     CheckCircleIconMini,
+    ClipboardDocumentListIconOutline,
     ExclamationTriangleIconMini,
     ExclamationCircleIconMini,
+    FolderOpenIconOutline,
     HeartIconMini,
     HeartIconSolid,
     ListBulletIconMini,

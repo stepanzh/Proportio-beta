@@ -1,7 +1,8 @@
 <template>
     <AppScreen>
         <template #nav>
-            <PToast message="Hello" :severity="toastSeverity" :isVisible="isToastVisible" @hide="isToastVisible = false">
+            <PToast message="Hello" :severity="toastSeverity" :isVisible="isToastVisible"
+                @hide="isToastVisible = false">
                 {{ toastMessage }}
             </PToast>
             <AppNavBar title="Пересчитать рецепт">
@@ -10,10 +11,26 @@
                         <PIconButton @click="isMenuShown = !isMenuShown" id="popupButton">
                             <Bars3IconOutline />
                         </PIconButton>
-                        <div class="popup__content popup-menu" v-if="isMenuShown" v-click-outside:popupButton="onPopupOutside">
-                            <p>Открыть</p>
-                            <p>Сохранить</p>
-                            <p>Скопировать</p>
+                        <div class="popup__content popup-menu" v-if="isMenuShown"
+                            v-click-outside:popupButton="onPopupOutside">
+                            <PMenuButton>
+                                <template #icon>
+                                    <FolderOpenIconOutline />
+                                </template>
+                                Открыть
+                            </PMenuButton>
+                            <PMenuButton>
+                                <template #icon>
+                                    <ArrowDownTrayIconOutline />
+                                </template>
+                                Сохранить
+                            </PMenuButton>
+                            <PMenuButton>
+                                <template #icon>
+                                    <ClipboardDocumentListIconOutline />
+                                </template>
+                                Скопировать
+                            </PMenuButton>
                         </div>
                     </div>
                 </template>
@@ -28,15 +45,13 @@
         <template #body>
             <!-- Mode toggle -->
             <div class="mode-toggle">
-                <PButton @click="setOriginal" label="Как в рецепте"
-                    class="mode-toggle__left"
+                <PButton @click="setOriginal" label="Как в рецепте" class="mode-toggle__left"
                     :class="{ 'btn-filled-primary': mode === Modes.original, 'btn-outlined': mode === Modes.scale }">
                     <template #icon>
                         <ListBulletIconMini />
                     </template>
                 </PButton>
-                <PButton @click="setScaled" label="Пересчитать"
-                    class="mode-toggle__right"
+                <PButton @click="setScaled" label="Пересчитать" class="mode-toggle__right"
                     :class="{ 'btn-filled-primary': mode === Modes.scale, 'btn-outlined': mode === Modes.original }">
                     <template #icon>
                         <CalculatorIconMini />
@@ -173,6 +188,9 @@ function onPopupOutside() { isMenuShown.value = false }
 }
 
 .popup-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     background-color: white;
     padding: 12px 8px;
     border: 1px solid var(--shuttle-gray-100);
