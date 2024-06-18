@@ -2,7 +2,7 @@
     <div class="site-nav-wrapper">
         <nav class="site-nav">
             <div class="site-nav__logo">
-                Пропорцио
+                Пропорцио <span style="color: var(--shuttle-gray-200)">(бета)</span>
             </div>
             <PLinkButton href="https://forms.yandex.ru/u/664f4420f47e734f11464652/" target="_blank" class="p-link-btn-grab">
                 Пройти опрос
