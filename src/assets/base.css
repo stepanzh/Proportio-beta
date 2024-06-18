@@ -1,5 +1,4 @@
 :root {
-  --cerise-600: #f50d8c;
   --blue-ribbon-100: #d8e9ff;
   --blue-ribbon-200: #b9d8ff;
   --blue-ribbon-300: #89c0ff;
@@ -9,6 +8,11 @@
   --blue-ribbon-700: #0c3fe9;
   --blue-ribbon-800: #1134BC;
   --blue-ribbon-900: #143194;
+  --cerise-50: #fff0fa;
+  --cerise-100: #ffe4f6;
+  --cerise-200: #ffc9ef;
+  --cerise-400: #ff5fc8;
+  --cerise-600: #f50d8c;
   --elevation-1: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   --elevation-2: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
   --elevation-3: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
