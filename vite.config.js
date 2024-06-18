@@ -12,7 +12,7 @@ export default defineConfig({
     VitePluginRadar({
       metrica: [
         {
-          id: 95640747,
+          id: 97607515,
           config: {
             defer: true,
             clickmap: true,
