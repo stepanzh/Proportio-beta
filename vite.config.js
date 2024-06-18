@@ -6,6 +6,7 @@ import { VitePluginRadar } from 'vite-plugin-radar'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/Proportio-beta/',
   plugins: [
     vue(),
 
