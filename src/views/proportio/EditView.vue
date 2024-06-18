@@ -30,9 +30,7 @@
                     </span>
                 </div>
             </main>
-            <div v-else>
-                Ингредиентов нет, добавьте в калькуляторе
-            </div>
+            <p v-else style="padding: 6px 0; font-style: italic;">Ингредиентов нет, добавьте в калькуляторе</p>
         </template>
     </AppScreen>
 </template>
