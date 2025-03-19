@@ -33,6 +33,12 @@
                                 </template>
                                 Скопировать
                             </PMenuButton>
+                            <PMenuButton @click="proportio.navToSupport()">
+                                <template #icon>
+                                    <HeartIconSolid class="txt-cerise-600" />
+                                </template>
+                                Поддержать проект
+                            </PMenuButton>
                         </div>
                     </div>
                 </template>
@@ -89,6 +95,7 @@ import { copyToClipboard } from '@/lib/copyToClipboard'
 import { RecipeExporter } from '@/lib/recipeExporter'
 import { downloadJson } from '@/lib/download'
 import { RecipeImporter } from '@/lib/recipeImporter'
+import PMenuButton from '@/ui/PMenuButton.vue'
 
 
 const proportio = useProportioNavStore()

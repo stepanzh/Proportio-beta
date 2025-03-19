@@ -8,12 +8,12 @@
             </div>
         </div>
         <div class="table-scale-actions">
-            <PLinkButton href="https://pay.cloudtips.ru/p/01aa1961" target="_blank">
+            <PButton @click="proportio.navToSupport()" label="Поддержать проект" class="btn-outlined">
                 <template #icon>
                     <HeartIconSolid class='txt-cerise-600' />
                 </template>
                 Поддержать проект
-            </PLinkButton>
+            </PButton>
         </div>
     </div>
 </template>
@@ -21,8 +21,10 @@
 
 <script setup>
 import { useProportioCalculatorStore } from '@/stores/proportioCalculator'
+import { useProportioNavStore } from '@/stores/proportioNav'
 import ScaledAmount from '@/components/ScaledAmount.vue'
 
+const proportio = useProportioNavStore()
 const store = useProportioCalculatorStore()
 </script>
 

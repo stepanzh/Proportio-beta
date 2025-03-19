@@ -18,7 +18,7 @@ const __name = 'PMenuButton'
 
 
 <style>
-.btn-menu {
+.btn.btn-menu {
     padding: 4px 8px;
     border-radius: 6px;
     background-color: transparent;
@@ -27,8 +27,8 @@ const __name = 'PMenuButton'
     font-weight: var(--weight-medium);
 }
 
-.btn-menu:hover { background-color: var(--blue-ribbon-100); }
-.btn-menu:active { background-color: var(--blue-ribbon-200); }
+.btn.btn-menu:hover { background-color: var(--blue-ribbon-100); }
+.btn.btn-menu:active { background-color: var(--blue-ribbon-200); }
 
 .btn-menu__content {
     display: flex;
