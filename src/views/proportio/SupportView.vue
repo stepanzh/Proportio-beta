@@ -23,7 +23,7 @@
                         💰 Задонатить через CloudTips
                     </PLinkButton>
                     <PLinkButton href="https://www.tbank.ru/cf/ASVy6k1gw7z" target="_blank" class="btn-donate btn-filled-primary">
-                        💰 Задонатить переводом в Т-Банк
+                        💰 Задонатить через Т-Банк
                     </PLinkButton>
                 </section>
             </main>
