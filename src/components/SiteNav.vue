@@ -1,8 +1,9 @@
 <template>
     <div class="site-nav-wrapper">
         <nav class="site-nav">
-            <div class="site-nav__logo">
-                Пропорцио <span style="color: var(--shuttle-gray-200)">(бета)</span>
+            <div class="site-nav__left">
+                <img class="site-nav__logo" src="@/assets/logo/proportio.svg">
+                <span>Пропорцио</span>
             </div>
             <PButton @click="proportioNav.navToSupport()" label="Поддержать" class="btn-outlined">
                 <template #icon>
@@ -39,8 +40,16 @@ const proportioNav = useProportioNavStore()
     min-height: 36px;
 }
 
-.site-nav__logo {
+.site-nav__left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-size: 18px;
     font-weight: var(--weight-semibold);
+}
+
+.site-nav__logo {
+    width: 36px;
+    height: 36px;
 }
 </style>
