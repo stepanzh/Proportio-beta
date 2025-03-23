@@ -20,7 +20,7 @@ import { useProportioNavStore } from '@/stores/proportioNav'
 
 const proportio = useProportioNavStore()
 
-proportio.navToCalc()
+proportio.navToHome()
 </script>
 
 

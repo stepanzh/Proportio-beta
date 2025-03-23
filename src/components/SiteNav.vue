@@ -1,7 +1,11 @@
 <template>
     <div class="site-nav-wrapper">
         <nav class="site-nav">
-            <div class="site-nav__left">
+            <div
+                class="site-nav__left"
+                @click="proportioNav.navToHome()"
+                :class="{ 'is-not-home':  proportioNav.currentScreen != proportioNav.homeScreen }">
+
                 <img class="site-nav__logo" src="@/assets/logo/proportio.svg">
                 <span>Пропорцио</span>
             </div>
@@ -46,6 +50,11 @@ const proportioNav = useProportioNavStore()
     gap: 8px;
     font-size: 18px;
     font-weight: var(--weight-semibold);
+    cursor: default;
+}
+
+.site-nav__left.is-not-home {
+    cursor: pointer;
 }
 
 .site-nav__logo {
