@@ -39,6 +39,12 @@
                                 </template>
                                 Поддержать проект
                             </PMenuButton>
+                            <PMenuButton @click="proportio.navToHelp()">
+                                <template #icon>
+                                    <QuestionMarkCircleIcon />
+                                </template>
+                                Как пользоваться
+                            </PMenuButton>
                         </div>
                     </div>
                 </template>
@@ -96,6 +102,7 @@ import { RecipeExporter } from '@/lib/recipeExporter'
 import { downloadJson } from '@/lib/download'
 import { RecipeImporter } from '@/lib/recipeImporter'
 import PMenuButton from '@/ui/PMenuButton.vue'
+import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline'
 
 
 const proportio = useProportioNavStore()
