@@ -12,14 +12,21 @@ export const useProportioNavStore = defineStore('proportio-nav', () => {
     // Current app's home is calc screen
     const homeScreen = screens.calc
 
+
     // Initial screen
     const currentScreen = ref(homeScreen)
 
-    const prevScreen = ref(homeScreen)
+    // Nav history is organized via stack
+    let navHistory = [currentScreen.value]
 
     function navToScreenById(screenId) {
-        prevScreen.value = currentScreen.value
+        if (currentScreen.value == screenId){
+            return
+        }
+
         currentScreen.value = screenId
+        navHistory.push(currentScreen.value)
+        console.debug('forward', navHistory)
     }
 
     function navToHome() { navToScreenById(homeScreen) }
@@ -32,12 +39,22 @@ export const useProportioNavStore = defineStore('proportio-nav', () => {
     
     function navToSupport() { navToScreenById(screens.support) }
 
-    function navBack() { navToScreenById(prevScreen.value) }
+    function navBack() {
+        console.debug('back before', navHistory)
+        if (navHistory.length > 0) {
+            let prevScreen = navHistory.pop()
+            if (navHistory.length > 0) {
+                currentScreen.value = navHistory[navHistory.length-1]
+            }
+        }
+        console.debug('back after', navHistory)
+    }
 
     return {
         screens,
         homeScreen,
         currentScreen,
+        navHistory,
         navToScreenById,
         navToHome,
         navBack,
