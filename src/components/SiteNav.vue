@@ -4,16 +4,20 @@
             <div class="site-nav__logo">
                 Пропорцио <span style="color: var(--shuttle-gray-200)">(бета)</span>
             </div>
-            <PLinkButton href="https://forms.yandex.ru/u/664f4420f47e734f11464652/" target="_blank" class="p-link-btn-grab">
-                Пройти опрос
-            </PLinkButton>
+            <PButton @click="proportioNav.navToSupport()" label="Поддержать" class="btn-outlined">
+                <template #icon>
+                    <HeartIconSolid class='txt-cerise-600' />
+                </template>
+            </PButton>
         </nav>
     </div>
 </template>
 
 
 <script setup>
+import { useProportioNavStore } from '@/stores/proportioNav'
 
+const proportioNav = useProportioNavStore()
 </script>
 
 

@@ -7,14 +7,6 @@
                 <span class="cell-unit">{{ ingr.unit }}</span>
             </div>
         </div>
-        <div class="table-scale-actions">
-            <PButton @click="proportio.navToSupport()" label="Поддержать проект" class="btn-outlined">
-                <template #icon>
-                    <HeartIconSolid class='txt-cerise-600' />
-                </template>
-                Поддержать проект
-            </PButton>
-        </div>
     </div>
 </template>
 

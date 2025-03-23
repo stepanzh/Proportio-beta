@@ -11,20 +11,25 @@
             </AppNavBar>
         </template>
         <template #body>
-            <header>
-                <h2>Поддержите Пропорцио</h2>
-            </header>
             <main>
-                <section style="margin-top: 24px;">
-                    Потрачу на развитие Пропорцио и разработку мобильного приложения.
+                <section>
+                    Потрачу на развитие Пропорцио и разработку мобильной версии приложения.
                 </section>
                 <section class="donate-actions">
-                    <PLinkButton href="https://pay.cloudtips.ru/p/01aa1961" target="_blank" class="btn-donate btn-filled-primary">
-                        💰 Задонатить через CloudTips
-                    </PLinkButton>
-                    <PLinkButton href="https://www.tbank.ru/cf/ASVy6k1gw7z" target="_blank" class="btn-donate btn-filled-primary">
-                        💰 Задонатить через Т-Банк
-                    </PLinkButton>
+                    <DonateCard
+                        title="Поддержать донатом в CloudTips"
+                        body="Любой банк и СБП. Есть сервисный сбор."
+                        donateUrl="https://pay.cloudtips.ru/p/01aa1961"
+                        action-caption="Поддержать через CloudTips"
+                        :logo-src=CloudTipsLogo
+                    />
+                    <DonateCard
+                        title="Поддержать переводом в Т-Банк"
+                        body="Любой банк, удобнее для клиентов Т-Банка."
+                        donateUrl="https://www.tbank.ru/cf/ASVy6k1gw7z"
+                        action-caption="Перевести в Т-Банк"
+                        :logo-src=TBankLogo
+                    />
                 </section>
             </main>
         </template>
@@ -32,10 +37,14 @@
 </template>
 
 <script setup>
+import { useProportioNavStore } from '@/stores/proportioNav'
+
 import AppNavBar from '@/components/AppNavBar.vue'
 import AppScreen from '@/components/AppScreen.vue'
-import { useProportioNavStore } from '@/stores/proportioNav'
-import PLinkButton from '@/ui/PLinkButton.vue'
+import DonateCard from '@/components/DonateCard.vue'
+
+import CloudTipsLogo from '@/assets/logo/cloudtips.svg'
+import TBankLogo from '@/assets/logo/tbank.svg'
 
 const proportioNav = useProportioNavStore()
 </script>
@@ -44,17 +53,7 @@ const proportioNav = useProportioNavStore()
 .donate-actions {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 64px;
     margin: 24px 0;
-}
-
-.btn-donate {
-    padding: 12px 32px;
-    border-radius: 8px;
-    font-weight: var(--weight-semibold);
-}
-
-.btn-donate:hover {
-    text-decoration: none;
 }
 </style>
