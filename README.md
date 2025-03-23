@@ -1,1 +1,7 @@
-# Proportio-beta
+# Пропорцио - тестовая версия
+
+Пропорцио переехал.
+
+Свежая версия поживает тут
+
+https://stepanzh.github.io/Proportio
