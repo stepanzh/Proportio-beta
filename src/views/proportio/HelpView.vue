@@ -3,7 +3,7 @@
         <template #nav>
             <AppNavBar title="Помощь">
                 <template #left-menu>
-                    <PIconButton @click="proportioNav.navToCalc()">
+                    <PIconButton @click="proportioNav.navBack()">
                         <ArrowLeftIconOutline />
                     </PIconButton>
                 </template>

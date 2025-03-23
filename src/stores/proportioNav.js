@@ -9,20 +9,41 @@ export const useProportioNavStore = defineStore('proportio-nav', () => {
         support: 4
     })
 
-    const currentScreen = ref(screens.calc)
-
     // Current app's home is calc screen
     const homeScreen = screens.calc
 
-    function navToHome() { currentScreen.value = homeScreen }
+    // Initial screen
+    const currentScreen = ref(homeScreen)
 
-    function navToCalc() { currentScreen.value = screens.calc }
+    const prevScreen = ref(homeScreen)
 
-    function navToEdit() { currentScreen.value = screens.edit }
+    function navToScreenById(screenId) {
+        prevScreen.value = currentScreen.value
+        currentScreen.value = screenId
+    }
+
+    function navToHome() { navToScreenById(homeScreen) }
+
+    function navToCalc() { navToScreenById(screens.calc) }
+
+    function navToEdit() { navToScreenById(screens.edit) }
     
-    function navToHelp() { currentScreen.value = screens.help }
+    function navToHelp() { navToScreenById(screens.help) }
     
-    function navToSupport() { currentScreen.value = screens.support }
+    function navToSupport() { navToScreenById(screens.support) }
 
-    return { screens, homeScreen, currentScreen, navToHome, navToCalc, navToEdit, navToHelp, navToSupport }
+    function navBack() { navToScreenById(prevScreen.value) }
+
+    return {
+        screens,
+        homeScreen,
+        currentScreen,
+        navToScreenById,
+        navToHome,
+        navBack,
+        navToCalc,
+        navToEdit,
+        navToHelp,
+        navToSupport,
+    }
 })
